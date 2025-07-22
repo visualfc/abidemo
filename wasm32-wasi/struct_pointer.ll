@@ -1,41 +1,41 @@
-; ModuleID = '../data/struct_float32.c'
-source_filename = "../data/struct_float32.c"
-target datalayout = "e-m:e-p:32:32-p10:8:8-p20:8:8-i64:64-f128:64-n32:64-S128-ni:1:10:20"
-target triple = "wasm32-unknown-emscripten"
+; ModuleID = '../data/struct_pointer.c'
+source_filename = "../data/struct_pointer.c"
+target datalayout = "e-m:e-p:32:32-p10:8:8-p20:8:8-i64:64-n32:64-S128-ni:1:10:20"
+target triple = "wasm32-unknown-wasi"
 
-%struct.struct1 = type { float }
-%struct.struct2 = type { float, float }
-%struct.struct3 = type { float, float, float }
-%struct.struct4 = type { float, float, float, float }
-%struct.struct5 = type { float, float, float, float, float }
-%struct.struct6 = type { float, float, float, float, float, float }
-%struct.struct7 = type { float, float, float, float, float, float, float }
-%struct.struct8 = type { float, float, float, float, float, float, float, float }
-%struct.struct9 = type { float, float, float, float, float, float, float, float, float }
-%struct.struct10 = type { float, float, float, float, float, float, float, float, float, float }
-%struct.struct11 = type { float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct12 = type { float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct13 = type { float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct14 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct15 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct16 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct17 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct18 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct19 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.struct20 = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
+%struct.struct1 = type { i32* }
+%struct.struct2 = type { i32*, i32* }
+%struct.struct3 = type { i32*, i32*, i32* }
+%struct.struct4 = type { i32*, i32*, i32*, i32* }
+%struct.struct5 = type { i32*, i32*, i32*, i32*, i32* }
+%struct.struct6 = type { i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct7 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct8 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct9 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct10 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct11 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct12 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct13 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct14 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct15 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct16 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct17 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct18 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct19 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct20 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
 
 ; Function Attrs: noinline nounwind optnone
-define hidden float @demo1(float %0) #0 {
+define hidden i32* @demo1(i32* %0) #0 {
   %2 = alloca %struct.struct1, align 4
   %3 = alloca %struct.struct1, align 4
   %4 = getelementptr inbounds %struct.struct1, %struct.struct1* %3, i32 0, i32 0
-  store float %0, float* %4, align 4
+  store i32* %0, i32** %4, align 4
   %5 = bitcast %struct.struct1* %2 to i8*
   %6 = bitcast %struct.struct1* %3 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 4, i1 false)
   %7 = getelementptr inbounds %struct.struct1, %struct.struct1* %2, i32 0, i32 0
-  %8 = load float, float* %7, align 4
-  ret float %8
+  %8 = load i32*, i32** %7, align 4
+  ret i32* %8
 }
 
 ; Function Attrs: argmemonly nofree nounwind willreturn

@@ -1,41 +1,43 @@
-; ModuleID = '../data/struct_int64.c'
-source_filename = "../data/struct_int64.c"
+; ModuleID = '../data/struct_pointer.c'
+source_filename = "../data/struct_pointer.c"
 target datalayout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128"
 target triple = "aarch64-unknown-linux-gnu"
 
-%struct.struct1 = type { i64 }
-%struct.struct2 = type { i64, i64 }
-%struct.struct3 = type { i64, i64, i64 }
-%struct.struct4 = type { i64, i64, i64, i64 }
-%struct.struct5 = type { i64, i64, i64, i64, i64 }
-%struct.struct6 = type { i64, i64, i64, i64, i64, i64 }
-%struct.struct7 = type { i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct8 = type { i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct9 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct10 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct11 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct12 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct13 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct14 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct15 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct16 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct17 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct18 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct19 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.struct20 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct1 = type { i32* }
+%struct.struct2 = type { i32*, i32* }
+%struct.struct3 = type { i32*, i32*, i32* }
+%struct.struct4 = type { i32*, i32*, i32*, i32* }
+%struct.struct5 = type { i32*, i32*, i32*, i32*, i32* }
+%struct.struct6 = type { i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct7 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct8 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct9 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct10 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct11 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct12 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct13 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct14 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct15 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct16 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct17 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct18 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct19 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct20 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
 
 ; Function Attrs: noinline nounwind optnone uwtable
 define dso_local i64 @demo1(i64 %0) #0 {
   %2 = alloca %struct.struct1, align 8
   %3 = alloca %struct.struct1, align 8
   %4 = getelementptr inbounds %struct.struct1, %struct.struct1* %3, i32 0, i32 0
-  store i64 %0, i64* %4, align 8
-  %5 = bitcast %struct.struct1* %2 to i8*
-  %6 = bitcast %struct.struct1* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %5, i8* align 8 %6, i64 8, i1 false)
-  %7 = getelementptr inbounds %struct.struct1, %struct.struct1* %2, i32 0, i32 0
-  %8 = load i64, i64* %7, align 8
-  ret i64 %8
+  %5 = inttoptr i64 %0 to i32*
+  store i32* %5, i32** %4, align 8
+  %6 = bitcast %struct.struct1* %2 to i8*
+  %7 = bitcast %struct.struct1* %3 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %6, i8* align 8 %7, i64 8, i1 false)
+  %8 = getelementptr inbounds %struct.struct1, %struct.struct1* %2, i32 0, i32 0
+  %9 = load i32*, i32** %8, align 8
+  %10 = ptrtoint i32* %9 to i64
+  ret i64 %10
 }
 
 ; Function Attrs: argmemonly nofree nounwind willreturn

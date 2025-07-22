@@ -1,7 +1,7 @@
 ; ModuleID = '../data/struct_int16.c'
 source_filename = "../data/struct_int16.c"
-target datalayout = "e-m:e-p:32:32-p10:8:8-p20:8:8-i64:64-n32:64-S128-ni:1:10:20"
-target triple = "wasm32-unknown-unknown"
+target datalayout = "e-m:e-p:32:32-p10:8:8-p20:8:8-i64:64-f128:64-n32:64-S128-ni:1:10:20"
+target triple = "wasm32-unknown-emscripten"
 
 %struct.struct1 = type { i16 }
 %struct.struct2 = type { i16, i16 }

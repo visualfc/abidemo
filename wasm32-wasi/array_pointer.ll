@@ -1,43 +1,43 @@
-; ModuleID = '../data/array_int32.c'
-source_filename = "../data/array_int32.c"
-target datalayout = "e-m:e-p:32:32-p10:8:8-p20:8:8-i64:64-f128:64-n32:64-S128-ni:1:10:20"
-target triple = "wasm32-unknown-emscripten"
+; ModuleID = '../data/array_pointer.c'
+source_filename = "../data/array_pointer.c"
+target datalayout = "e-m:e-p:32:32-p10:8:8-p20:8:8-i64:64-n32:64-S128-ni:1:10:20"
+target triple = "wasm32-unknown-wasi"
 
-%struct.array1 = type { [1 x i32] }
-%struct.array2 = type { [2 x i32] }
-%struct.array3 = type { [3 x i32] }
-%struct.array4 = type { [4 x i32] }
-%struct.array5 = type { [5 x i32] }
-%struct.array6 = type { [6 x i32] }
-%struct.array7 = type { [7 x i32] }
-%struct.array8 = type { [8 x i32] }
-%struct.array9 = type { [9 x i32] }
-%struct.array10 = type { [10 x i32] }
-%struct.array11 = type { [11 x i32] }
-%struct.array12 = type { [12 x i32] }
-%struct.array13 = type { [13 x i32] }
-%struct.array14 = type { [14 x i32] }
-%struct.array15 = type { [15 x i32] }
-%struct.array16 = type { [16 x i32] }
-%struct.array17 = type { [17 x i32] }
-%struct.array18 = type { [18 x i32] }
-%struct.array19 = type { [19 x i32] }
-%struct.array20 = type { [20 x i32] }
+%struct.array1 = type { [1 x i32*] }
+%struct.array2 = type { [2 x i32*] }
+%struct.array3 = type { [3 x i32*] }
+%struct.array4 = type { [4 x i32*] }
+%struct.array5 = type { [5 x i32*] }
+%struct.array6 = type { [6 x i32*] }
+%struct.array7 = type { [7 x i32*] }
+%struct.array8 = type { [8 x i32*] }
+%struct.array9 = type { [9 x i32*] }
+%struct.array10 = type { [10 x i32*] }
+%struct.array11 = type { [11 x i32*] }
+%struct.array12 = type { [12 x i32*] }
+%struct.array13 = type { [13 x i32*] }
+%struct.array14 = type { [14 x i32*] }
+%struct.array15 = type { [15 x i32*] }
+%struct.array16 = type { [16 x i32*] }
+%struct.array17 = type { [17 x i32*] }
+%struct.array18 = type { [18 x i32*] }
+%struct.array19 = type { [19 x i32*] }
+%struct.array20 = type { [20 x i32*] }
 
 ; Function Attrs: noinline nounwind optnone
-define hidden i32 @demo1(i32 %0) #0 {
+define hidden i32* @demo1(i32* %0) #0 {
   %2 = alloca %struct.array1, align 4
   %3 = alloca %struct.array1, align 4
   %4 = getelementptr inbounds %struct.array1, %struct.array1* %3, i32 0, i32 0
-  %5 = bitcast [1 x i32]* %4 to i32*
-  store i32 %0, i32* %5, align 4
+  %5 = bitcast [1 x i32*]* %4 to i32**
+  store i32* %0, i32** %5, align 4
   %6 = bitcast %struct.array1* %2 to i8*
   %7 = bitcast %struct.array1* %3 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %6, i8* align 4 %7, i32 4, i1 false)
   %8 = getelementptr inbounds %struct.array1, %struct.array1* %2, i32 0, i32 0
-  %9 = bitcast [1 x i32]* %8 to i32*
-  %10 = load i32, i32* %9, align 4
-  ret i32 %10
+  %9 = bitcast [1 x i32*]* %8 to i32**
+  %10 = load i32*, i32** %9, align 4
+  ret i32* %10
 }
 
 ; Function Attrs: argmemonly nofree nounwind willreturn

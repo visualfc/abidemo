@@ -3,240 +3,212 @@ source_filename = "../data/struct_int64.c"
 target datalayout = "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64"
 target triple = "armv6kz-unknown-linux-gnueabihf"
 
-%struct.struct1 = type { i32* }
-%struct.struct2 = type { i32*, i32* }
-%struct.struct3 = type { i32*, i32*, i32* }
-%struct.struct4 = type { i32*, i32*, i32*, i32* }
-%struct.struct5 = type { i32*, i32*, i32*, i32*, i32* }
-%struct.struct6 = type { i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct7 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct8 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct9 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct10 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct11 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct12 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct13 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct14 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct15 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct16 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct17 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct18 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct19 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
-%struct.struct20 = type { i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32*, i32* }
+%struct.struct1 = type { i64 }
+%struct.struct2 = type { i64, i64 }
+%struct.struct3 = type { i64, i64, i64 }
+%struct.struct4 = type { i64, i64, i64, i64 }
+%struct.struct5 = type { i64, i64, i64, i64, i64 }
+%struct.struct6 = type { i64, i64, i64, i64, i64, i64 }
+%struct.struct7 = type { i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct8 = type { i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct9 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct10 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct11 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct12 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct13 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct14 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct15 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct16 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct17 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct18 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct19 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.struct20 = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local i32 @demo1([1 x i32] %0) #0 {
-  %2 = alloca %struct.struct1, align 4
-  %3 = alloca %struct.struct1, align 4
+define dso_local void @demo1(%struct.struct1* noalias sret(%struct.struct1) align 8 %0, [1 x i64] %1) #0 {
+  %3 = alloca %struct.struct1, align 8
   %4 = getelementptr inbounds %struct.struct1, %struct.struct1* %3, i32 0, i32 0
-  %5 = bitcast i32** %4 to [1 x i32]*
-  store [1 x i32] %0, [1 x i32]* %5, align 4
-  %6 = bitcast %struct.struct1* %2 to i8*
+  %5 = bitcast i64* %4 to [1 x i64]*
+  store [1 x i64] %1, [1 x i64]* %5, align 8
+  %6 = bitcast %struct.struct1* %0 to i8*
   %7 = bitcast %struct.struct1* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %6, i8* align 4 %7, i32 4, i1 false)
-  %8 = getelementptr inbounds %struct.struct1, %struct.struct1* %2, i32 0, i32 0
-  %9 = load i32*, i32** %8, align 4
-  %10 = ptrtoint i32* %9 to i32
-  ret i32 %10
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %6, i8* align 8 %7, i32 8, i1 false)
+  ret void
 }
 
 ; Function Attrs: argmemonly nofree nounwind willreturn
 declare void @llvm.memcpy.p0i8.p0i8.i32(i8* noalias nocapture writeonly, i8* noalias nocapture readonly, i32, i1 immarg) #1
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo2(%struct.struct2* noalias sret(%struct.struct2) align 4 %0, [2 x i32] %1) #0 {
-  %3 = alloca %struct.struct2, align 4
-  %4 = bitcast %struct.struct2* %3 to [2 x i32]*
-  store [2 x i32] %1, [2 x i32]* %4, align 4
+define dso_local void @demo2(%struct.struct2* noalias sret(%struct.struct2) align 8 %0, [2 x i64] %1) #0 {
+  %3 = alloca %struct.struct2, align 8
+  %4 = bitcast %struct.struct2* %3 to [2 x i64]*
+  store [2 x i64] %1, [2 x i64]* %4, align 8
   %5 = bitcast %struct.struct2* %0 to i8*
   %6 = bitcast %struct.struct2* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 8, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 16, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo3(%struct.struct3* noalias sret(%struct.struct3) align 4 %0, [3 x i32] %1) #0 {
-  %3 = alloca %struct.struct3, align 4
-  %4 = bitcast %struct.struct3* %3 to [3 x i32]*
-  store [3 x i32] %1, [3 x i32]* %4, align 4
+define dso_local void @demo3(%struct.struct3* noalias sret(%struct.struct3) align 8 %0, [3 x i64] %1) #0 {
+  %3 = alloca %struct.struct3, align 8
+  %4 = bitcast %struct.struct3* %3 to [3 x i64]*
+  store [3 x i64] %1, [3 x i64]* %4, align 8
   %5 = bitcast %struct.struct3* %0 to i8*
   %6 = bitcast %struct.struct3* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 12, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 24, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo4(%struct.struct4* noalias sret(%struct.struct4) align 4 %0, [4 x i32] %1) #0 {
-  %3 = alloca %struct.struct4, align 4
-  %4 = bitcast %struct.struct4* %3 to [4 x i32]*
-  store [4 x i32] %1, [4 x i32]* %4, align 4
+define dso_local void @demo4(%struct.struct4* noalias sret(%struct.struct4) align 8 %0, [4 x i64] %1) #0 {
+  %3 = alloca %struct.struct4, align 8
+  %4 = bitcast %struct.struct4* %3 to [4 x i64]*
+  store [4 x i64] %1, [4 x i64]* %4, align 8
   %5 = bitcast %struct.struct4* %0 to i8*
   %6 = bitcast %struct.struct4* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 16, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 32, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo5(%struct.struct5* noalias sret(%struct.struct5) align 4 %0, [5 x i32] %1) #0 {
-  %3 = alloca %struct.struct5, align 4
-  %4 = bitcast %struct.struct5* %3 to [5 x i32]*
-  store [5 x i32] %1, [5 x i32]* %4, align 4
+define dso_local void @demo5(%struct.struct5* noalias sret(%struct.struct5) align 8 %0, [5 x i64] %1) #0 {
+  %3 = alloca %struct.struct5, align 8
+  %4 = bitcast %struct.struct5* %3 to [5 x i64]*
+  store [5 x i64] %1, [5 x i64]* %4, align 8
   %5 = bitcast %struct.struct5* %0 to i8*
   %6 = bitcast %struct.struct5* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 20, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 40, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo6(%struct.struct6* noalias sret(%struct.struct6) align 4 %0, [6 x i32] %1) #0 {
-  %3 = alloca %struct.struct6, align 4
-  %4 = bitcast %struct.struct6* %3 to [6 x i32]*
-  store [6 x i32] %1, [6 x i32]* %4, align 4
+define dso_local void @demo6(%struct.struct6* noalias sret(%struct.struct6) align 8 %0, [6 x i64] %1) #0 {
+  %3 = alloca %struct.struct6, align 8
+  %4 = bitcast %struct.struct6* %3 to [6 x i64]*
+  store [6 x i64] %1, [6 x i64]* %4, align 8
   %5 = bitcast %struct.struct6* %0 to i8*
   %6 = bitcast %struct.struct6* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 24, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 48, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo7(%struct.struct7* noalias sret(%struct.struct7) align 4 %0, [7 x i32] %1) #0 {
-  %3 = alloca %struct.struct7, align 4
-  %4 = bitcast %struct.struct7* %3 to [7 x i32]*
-  store [7 x i32] %1, [7 x i32]* %4, align 4
+define dso_local void @demo7(%struct.struct7* noalias sret(%struct.struct7) align 8 %0, [7 x i64] %1) #0 {
+  %3 = alloca %struct.struct7, align 8
+  %4 = bitcast %struct.struct7* %3 to [7 x i64]*
+  store [7 x i64] %1, [7 x i64]* %4, align 8
   %5 = bitcast %struct.struct7* %0 to i8*
   %6 = bitcast %struct.struct7* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 28, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 56, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo8(%struct.struct8* noalias sret(%struct.struct8) align 4 %0, [8 x i32] %1) #0 {
-  %3 = alloca %struct.struct8, align 4
-  %4 = bitcast %struct.struct8* %3 to [8 x i32]*
-  store [8 x i32] %1, [8 x i32]* %4, align 4
+define dso_local void @demo8(%struct.struct8* noalias sret(%struct.struct8) align 8 %0, [8 x i64] %1) #0 {
+  %3 = alloca %struct.struct8, align 8
+  %4 = bitcast %struct.struct8* %3 to [8 x i64]*
+  store [8 x i64] %1, [8 x i64]* %4, align 8
   %5 = bitcast %struct.struct8* %0 to i8*
   %6 = bitcast %struct.struct8* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 32, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %5, i8* align 8 %6, i32 64, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo9(%struct.struct9* noalias sret(%struct.struct9) align 4 %0, [9 x i32] %1) #0 {
-  %3 = alloca %struct.struct9, align 4
-  %4 = bitcast %struct.struct9* %3 to [9 x i32]*
-  store [9 x i32] %1, [9 x i32]* %4, align 4
-  %5 = bitcast %struct.struct9* %0 to i8*
-  %6 = bitcast %struct.struct9* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 36, i1 false)
+define dso_local void @demo9(%struct.struct9* noalias sret(%struct.struct9) align 8 %0, %struct.struct9* noundef byval(%struct.struct9) align 8 %1) #0 {
+  %3 = bitcast %struct.struct9* %0 to i8*
+  %4 = bitcast %struct.struct9* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 72, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo10(%struct.struct10* noalias sret(%struct.struct10) align 4 %0, [10 x i32] %1) #0 {
-  %3 = alloca %struct.struct10, align 4
-  %4 = bitcast %struct.struct10* %3 to [10 x i32]*
-  store [10 x i32] %1, [10 x i32]* %4, align 4
-  %5 = bitcast %struct.struct10* %0 to i8*
-  %6 = bitcast %struct.struct10* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 40, i1 false)
+define dso_local void @demo10(%struct.struct10* noalias sret(%struct.struct10) align 8 %0, %struct.struct10* noundef byval(%struct.struct10) align 8 %1) #0 {
+  %3 = bitcast %struct.struct10* %0 to i8*
+  %4 = bitcast %struct.struct10* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 80, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo11(%struct.struct11* noalias sret(%struct.struct11) align 4 %0, [11 x i32] %1) #0 {
-  %3 = alloca %struct.struct11, align 4
-  %4 = bitcast %struct.struct11* %3 to [11 x i32]*
-  store [11 x i32] %1, [11 x i32]* %4, align 4
-  %5 = bitcast %struct.struct11* %0 to i8*
-  %6 = bitcast %struct.struct11* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 44, i1 false)
+define dso_local void @demo11(%struct.struct11* noalias sret(%struct.struct11) align 8 %0, %struct.struct11* noundef byval(%struct.struct11) align 8 %1) #0 {
+  %3 = bitcast %struct.struct11* %0 to i8*
+  %4 = bitcast %struct.struct11* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 88, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo12(%struct.struct12* noalias sret(%struct.struct12) align 4 %0, [12 x i32] %1) #0 {
-  %3 = alloca %struct.struct12, align 4
-  %4 = bitcast %struct.struct12* %3 to [12 x i32]*
-  store [12 x i32] %1, [12 x i32]* %4, align 4
-  %5 = bitcast %struct.struct12* %0 to i8*
-  %6 = bitcast %struct.struct12* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 48, i1 false)
+define dso_local void @demo12(%struct.struct12* noalias sret(%struct.struct12) align 8 %0, %struct.struct12* noundef byval(%struct.struct12) align 8 %1) #0 {
+  %3 = bitcast %struct.struct12* %0 to i8*
+  %4 = bitcast %struct.struct12* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 96, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo13(%struct.struct13* noalias sret(%struct.struct13) align 4 %0, [13 x i32] %1) #0 {
-  %3 = alloca %struct.struct13, align 4
-  %4 = bitcast %struct.struct13* %3 to [13 x i32]*
-  store [13 x i32] %1, [13 x i32]* %4, align 4
-  %5 = bitcast %struct.struct13* %0 to i8*
-  %6 = bitcast %struct.struct13* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 52, i1 false)
+define dso_local void @demo13(%struct.struct13* noalias sret(%struct.struct13) align 8 %0, %struct.struct13* noundef byval(%struct.struct13) align 8 %1) #0 {
+  %3 = bitcast %struct.struct13* %0 to i8*
+  %4 = bitcast %struct.struct13* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 104, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo14(%struct.struct14* noalias sret(%struct.struct14) align 4 %0, [14 x i32] %1) #0 {
-  %3 = alloca %struct.struct14, align 4
-  %4 = bitcast %struct.struct14* %3 to [14 x i32]*
-  store [14 x i32] %1, [14 x i32]* %4, align 4
-  %5 = bitcast %struct.struct14* %0 to i8*
-  %6 = bitcast %struct.struct14* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 56, i1 false)
+define dso_local void @demo14(%struct.struct14* noalias sret(%struct.struct14) align 8 %0, %struct.struct14* noundef byval(%struct.struct14) align 8 %1) #0 {
+  %3 = bitcast %struct.struct14* %0 to i8*
+  %4 = bitcast %struct.struct14* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 112, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo15(%struct.struct15* noalias sret(%struct.struct15) align 4 %0, [15 x i32] %1) #0 {
-  %3 = alloca %struct.struct15, align 4
-  %4 = bitcast %struct.struct15* %3 to [15 x i32]*
-  store [15 x i32] %1, [15 x i32]* %4, align 4
-  %5 = bitcast %struct.struct15* %0 to i8*
-  %6 = bitcast %struct.struct15* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 60, i1 false)
+define dso_local void @demo15(%struct.struct15* noalias sret(%struct.struct15) align 8 %0, %struct.struct15* noundef byval(%struct.struct15) align 8 %1) #0 {
+  %3 = bitcast %struct.struct15* %0 to i8*
+  %4 = bitcast %struct.struct15* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 120, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo16(%struct.struct16* noalias sret(%struct.struct16) align 4 %0, [16 x i32] %1) #0 {
-  %3 = alloca %struct.struct16, align 4
-  %4 = bitcast %struct.struct16* %3 to [16 x i32]*
-  store [16 x i32] %1, [16 x i32]* %4, align 4
-  %5 = bitcast %struct.struct16* %0 to i8*
-  %6 = bitcast %struct.struct16* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %5, i8* align 4 %6, i32 64, i1 false)
+define dso_local void @demo16(%struct.struct16* noalias sret(%struct.struct16) align 8 %0, %struct.struct16* noundef byval(%struct.struct16) align 8 %1) #0 {
+  %3 = bitcast %struct.struct16* %0 to i8*
+  %4 = bitcast %struct.struct16* %1 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 128, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo17(%struct.struct17* noalias sret(%struct.struct17) align 4 %0, %struct.struct17* noundef byval(%struct.struct17) align 4 %1) #0 {
+define dso_local void @demo17(%struct.struct17* noalias sret(%struct.struct17) align 8 %0, %struct.struct17* noundef byval(%struct.struct17) align 8 %1) #0 {
   %3 = bitcast %struct.struct17* %0 to i8*
   %4 = bitcast %struct.struct17* %1 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %3, i8* align 4 %4, i32 68, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 136, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo18(%struct.struct18* noalias sret(%struct.struct18) align 4 %0, %struct.struct18* noundef byval(%struct.struct18) align 4 %1) #0 {
+define dso_local void @demo18(%struct.struct18* noalias sret(%struct.struct18) align 8 %0, %struct.struct18* noundef byval(%struct.struct18) align 8 %1) #0 {
   %3 = bitcast %struct.struct18* %0 to i8*
   %4 = bitcast %struct.struct18* %1 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %3, i8* align 4 %4, i32 72, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 144, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo19(%struct.struct19* noalias sret(%struct.struct19) align 4 %0, %struct.struct19* noundef byval(%struct.struct19) align 4 %1) #0 {
+define dso_local void @demo19(%struct.struct19* noalias sret(%struct.struct19) align 8 %0, %struct.struct19* noundef byval(%struct.struct19) align 8 %1) #0 {
   %3 = bitcast %struct.struct19* %0 to i8*
   %4 = bitcast %struct.struct19* %1 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %3, i8* align 4 %4, i32 76, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 152, i1 false)
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone
-define dso_local void @demo20(%struct.struct20* noalias sret(%struct.struct20) align 4 %0, %struct.struct20* noundef byval(%struct.struct20) align 4 %1) #0 {
+define dso_local void @demo20(%struct.struct20* noalias sret(%struct.struct20) align 8 %0, %struct.struct20* noundef byval(%struct.struct20) align 8 %1) #0 {
   %3 = bitcast %struct.struct20* %0 to i8*
   %4 = bitcast %struct.struct20* %1 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 4 %3, i8* align 4 %4, i32 80, i1 false)
+  call void @llvm.memcpy.p0i8.p0i8.i32(i8* align 8 %3, i8* align 8 %4, i32 160, i1 false)
   ret void
 }
 

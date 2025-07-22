@@ -37,8 +37,8 @@ func main() {
 	// double
 	// 1 2 3 4 5 6 7 8
 
-	types := []string{"char", "short", "int", "int*", "float", "double"}
-	ids := []string{"int8", "int16", "int32", "int64", "float32", "float64"}
+	types := []string{"char", "short", "int", "long long", "float", "double", "int*"}
+	ids := []string{"int8", "int16", "int32", "int64", "float32", "float64", "pointer"}
 	for nid, id := range ids {
 		f := filepath.Join("./data/array_" + id + ".c")
 		var buf bytes.Buffer

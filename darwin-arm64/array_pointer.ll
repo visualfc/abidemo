@@ -1,41 +1,41 @@
-; ModuleID = '../data/array_int64.c'
-source_filename = "../data/array_int64.c"
+; ModuleID = '../data/array_pointer.c'
+source_filename = "../data/array_pointer.c"
 target datalayout = "e-m:o-i64:64-i128:128-n32:64-S128"
 target triple = "arm64-apple-macosx13.0.0"
 
-%struct.array1 = type { [1 x i64] }
-%struct.array2 = type { [2 x i64] }
-%struct.array3 = type { [3 x i64] }
-%struct.array4 = type { [4 x i64] }
-%struct.array5 = type { [5 x i64] }
-%struct.array6 = type { [6 x i64] }
-%struct.array7 = type { [7 x i64] }
-%struct.array8 = type { [8 x i64] }
-%struct.array9 = type { [9 x i64] }
-%struct.array10 = type { [10 x i64] }
-%struct.array11 = type { [11 x i64] }
-%struct.array12 = type { [12 x i64] }
-%struct.array13 = type { [13 x i64] }
-%struct.array14 = type { [14 x i64] }
-%struct.array15 = type { [15 x i64] }
-%struct.array16 = type { [16 x i64] }
-%struct.array17 = type { [17 x i64] }
-%struct.array18 = type { [18 x i64] }
-%struct.array19 = type { [19 x i64] }
-%struct.array20 = type { [20 x i64] }
+%struct.array1 = type { [1 x i32*] }
+%struct.array2 = type { [2 x i32*] }
+%struct.array3 = type { [3 x i32*] }
+%struct.array4 = type { [4 x i32*] }
+%struct.array5 = type { [5 x i32*] }
+%struct.array6 = type { [6 x i32*] }
+%struct.array7 = type { [7 x i32*] }
+%struct.array8 = type { [8 x i32*] }
+%struct.array9 = type { [9 x i32*] }
+%struct.array10 = type { [10 x i32*] }
+%struct.array11 = type { [11 x i32*] }
+%struct.array12 = type { [12 x i32*] }
+%struct.array13 = type { [13 x i32*] }
+%struct.array14 = type { [14 x i32*] }
+%struct.array15 = type { [15 x i32*] }
+%struct.array16 = type { [16 x i32*] }
+%struct.array17 = type { [17 x i32*] }
+%struct.array18 = type { [18 x i32*] }
+%struct.array19 = type { [19 x i32*] }
+%struct.array20 = type { [20 x i32*] }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable(sync)
 define i64 @demo1(i64 %0) #0 {
   %2 = alloca %struct.array1, align 8
   %3 = alloca %struct.array1, align 8
   %4 = getelementptr inbounds %struct.array1, %struct.array1* %3, i32 0, i32 0
-  %5 = bitcast [1 x i64]* %4 to i64*
+  %5 = bitcast [1 x i32*]* %4 to i64*
   store i64 %0, i64* %5, align 8
   %6 = bitcast %struct.array1* %2 to i8*
   %7 = bitcast %struct.array1* %3 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %6, i8* align 8 %7, i64 8, i1 false)
   %8 = getelementptr inbounds %struct.array1, %struct.array1* %2, i32 0, i32 0
-  %9 = bitcast [1 x i64]* %8 to i64*
+  %9 = bitcast [1 x i32*]* %8 to i64*
   %10 = load i64, i64* %9, align 8
   ret i64 %10
 }
@@ -48,13 +48,15 @@ define [2 x i64] @demo2([2 x i64] %0) #0 {
   %2 = alloca %struct.array2, align 8
   %3 = alloca %struct.array2, align 8
   %4 = getelementptr inbounds %struct.array2, %struct.array2* %3, i32 0, i32 0
-  store [2 x i64] %0, [2 x i64]* %4, align 8
-  %5 = bitcast %struct.array2* %2 to i8*
-  %6 = bitcast %struct.array2* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %5, i8* align 8 %6, i64 16, i1 false)
-  %7 = getelementptr inbounds %struct.array2, %struct.array2* %2, i32 0, i32 0
-  %8 = load [2 x i64], [2 x i64]* %7, align 8
-  ret [2 x i64] %8
+  %5 = bitcast [2 x i32*]* %4 to [2 x i64]*
+  store [2 x i64] %0, [2 x i64]* %5, align 8
+  %6 = bitcast %struct.array2* %2 to i8*
+  %7 = bitcast %struct.array2* %3 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %6, i8* align 8 %7, i64 16, i1 false)
+  %8 = getelementptr inbounds %struct.array2, %struct.array2* %2, i32 0, i32 0
+  %9 = bitcast [2 x i32*]* %8 to [2 x i64]*
+  %10 = load [2 x i64], [2 x i64]* %9, align 8
+  ret [2 x i64] %10
 }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable(sync)
