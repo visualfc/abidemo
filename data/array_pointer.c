@@ -1,4 +1,8 @@
 
+int* basic(int* a) {
+	return a;
+}
+
 struct array1 {
     int* x[1];
 };

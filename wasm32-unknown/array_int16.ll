@@ -25,6 +25,14 @@ target triple = "wasm32-unknown-emscripten"
 %struct.array20 = type { [20 x i16] }
 
 ; Function Attrs: noinline nounwind optnone
+define hidden signext i16 @basic(i16 noundef signext %0) #0 {
+  %2 = alloca i16, align 2
+  store i16 %0, i16* %2, align 2
+  %3 = load i16, i16* %2, align 2
+  ret i16 %3
+}
+
+; Function Attrs: noinline nounwind optnone
 define hidden i16 @demo1(i16 %0) #0 {
   %2 = alloca %struct.array1, align 2
   %3 = alloca %struct.array1, align 2

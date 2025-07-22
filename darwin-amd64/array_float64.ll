@@ -25,6 +25,14 @@ target triple = "x86_64-apple-macosx13.0.0"
 %struct.array20 = type { [20 x double] }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
+define double @basic(double noundef %0) #0 {
+  %2 = alloca double, align 8
+  store double %0, double* %2, align 8
+  %3 = load double, double* %2, align 8
+  ret double %3
+}
+
+; Function Attrs: noinline nounwind optnone ssp uwtable
 define double @demo1(double %0) #0 {
   %2 = alloca %struct.array1, align 8
   %3 = alloca %struct.array1, align 8

@@ -25,6 +25,14 @@ target triple = "aarch64-unknown-linux-gnu"
 %struct.array20 = type { [20 x i64] }
 
 ; Function Attrs: noinline nounwind optnone uwtable
+define dso_local i64 @basic(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, i64* %2, align 8
+  %3 = load i64, i64* %2, align 8
+  ret i64 %3
+}
+
+; Function Attrs: noinline nounwind optnone uwtable
 define dso_local i64 @demo1(i64 %0) #0 {
   %2 = alloca %struct.array1, align 8
   %3 = alloca %struct.array1, align 8

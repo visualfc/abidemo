@@ -25,6 +25,14 @@ target triple = "x86_64-apple-macosx13.0.0"
 %struct.array20 = type { [20 x float] }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
+define float @basic(float noundef %0) #0 {
+  %2 = alloca float, align 4
+  store float %0, float* %2, align 4
+  %3 = load float, float* %2, align 4
+  ret float %3
+}
+
+; Function Attrs: noinline nounwind optnone ssp uwtable
 define float @demo1(float %0) #0 {
   %2 = alloca %struct.array1, align 4
   %3 = alloca %struct.array1, align 4

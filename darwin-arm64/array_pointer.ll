@@ -25,6 +25,14 @@ target triple = "arm64-apple-macosx13.0.0"
 %struct.array20 = type { [20 x i32*] }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable(sync)
+define i32* @basic(i32* noundef %0) #0 {
+  %2 = alloca i32*, align 8
+  store i32* %0, i32** %2, align 8
+  %3 = load i32*, i32** %2, align 8
+  ret i32* %3
+}
+
+; Function Attrs: noinline nounwind optnone ssp uwtable(sync)
 define i64 @demo1(i64 %0) #0 {
   %2 = alloca %struct.array1, align 8
   %3 = alloca %struct.array1, align 8

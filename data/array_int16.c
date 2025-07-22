@@ -1,4 +1,8 @@
 
+short basic(short a) {
+	return a;
+}
+
 struct array1 {
     short x[1];
 };

@@ -25,6 +25,14 @@ target triple = "i386-unknown-linux-gnu"
 %struct.array20 = type { [20 x float] }
 
 ; Function Attrs: noinline nounwind optnone uwtable
+define dso_local float @basic(float noundef %0) #0 {
+  %2 = alloca float, align 4
+  store float %0, float* %2, align 4
+  %3 = load float, float* %2, align 4
+  ret float %3
+}
+
+; Function Attrs: noinline nounwind optnone uwtable
 define dso_local void @demo1(%struct.array1* noalias sret(%struct.array1) align 4 %0, %struct.array1* noundef byval(%struct.array1) align 4 %1) #0 {
   %3 = alloca i8*, align 4
   %4 = bitcast %struct.array1* %0 to i8*

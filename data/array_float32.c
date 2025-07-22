@@ -1,4 +1,8 @@
 
+float basic(float a) {
+	return a;
+}
+
 struct array1 {
     float x[1];
 };

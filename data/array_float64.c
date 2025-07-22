@@ -1,4 +1,8 @@
 
+double basic(double a) {
+	return a;
+}
+
 struct array1 {
     double x[1];
 };

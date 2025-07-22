@@ -25,6 +25,14 @@ target triple = "armv6kz-unknown-linux-gnueabihf"
 %struct.array20 = type { [20 x i16] }
 
 ; Function Attrs: noinline nounwind optnone
+define dso_local signext i16 @basic(i16 noundef signext %0) #0 {
+  %2 = alloca i16, align 2
+  store i16 %0, i16* %2, align 2
+  %3 = load i16, i16* %2, align 2
+  ret i16 %3
+}
+
+; Function Attrs: noinline nounwind optnone
 define dso_local i16 @demo1([1 x i32] %0) #0 {
   %2 = alloca %struct.array1, align 2
   %3 = alloca %struct.array1, align 2

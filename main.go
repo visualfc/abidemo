@@ -8,6 +8,12 @@ import (
 	"strings"
 )
 
+var basic = `
+int basic(int a) {
+	return a;
+}
+`
+
 var src = `
 struct array {
     int x[N];
@@ -42,6 +48,7 @@ func main() {
 	for nid, id := range ids {
 		f := filepath.Join("./data/array_" + id + ".c")
 		var buf bytes.Buffer
+		buf.WriteString(strings.Replace(basic, "int", types[nid], -1))
 		for i := 0; i < 20; i++ {
 			N := strconv.Itoa(i + 1)
 			data := strings.NewReplacer("int", types[nid], "N", N,

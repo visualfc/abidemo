@@ -25,6 +25,14 @@ target triple = "armv6kz-unknown-linux-gnueabihf"
 %struct.array20 = type { [20 x i64] }
 
 ; Function Attrs: noinline nounwind optnone
+define dso_local i64 @basic(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, i64* %2, align 8
+  %3 = load i64, i64* %2, align 8
+  ret i64 %3
+}
+
+; Function Attrs: noinline nounwind optnone
 define dso_local void @demo1(%struct.array1* noalias sret(%struct.array1) align 8 %0, [1 x i64] %1) #0 {
   %3 = alloca %struct.array1, align 8
   %4 = getelementptr inbounds %struct.array1, %struct.array1* %3, i32 0, i32 0

@@ -1,4 +1,8 @@
 
+char basic(char a) {
+	return a;
+}
+
 struct array1 {
     char x[1];
 };

@@ -1,4 +1,8 @@
 
+long long basic(long long a) {
+	return a;
+}
+
 struct array1 {
     long long x[1];
 };
